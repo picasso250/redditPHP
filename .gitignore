@@ -1,2 +1,5 @@
 vendor/
 .env
+node_modules/
+nohup.out
+public/js/name.js
