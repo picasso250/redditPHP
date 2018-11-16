@@ -24,18 +24,11 @@ if ($_ENV['DEBUG']) {
     $whoops->register();
 }
 
-$config_di = [
-    Redis::class => function () {
-        $redis = new Redis;
-        $redis->connect($_ENV['redis_host']);
-        return $redis;
-    },
-];
 $containerBuilder = new ContainerBuilder;
-$containerBuilder->addDefinitions(__DIR__ . '/config.php');
+$containerBuilder->addDefinitions(ROOT . '/config_di.php');
 $container = $containerBuilder->build();
 
-$dotenv->required(['DATABASE_DSN', 'DB_USER', 'DB_PASS'])->notEmpty();
+$dotenv->required(['redis_host'])->notEmpty();
 
 $router = new \Bramus\Router\Router();
 $router->get('/', 'action_index');
