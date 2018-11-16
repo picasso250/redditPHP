@@ -7,6 +7,12 @@ function action_index()
     $_inner_tpl = ROOT_VIEW."/index.php";
     include ROOT_VIEW.'/layout.php';
 }
+function action_create()
+{
+    $redis = $GLOBALS['container']->get('Redis');
+    $_inner_tpl = ROOT_VIEW."/create.php";
+    include ROOT_VIEW.'/layout.php';
+}
 function action_r($name)
 {
     $redis = $GLOBALS['container']->get('Redis');

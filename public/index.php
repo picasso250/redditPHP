@@ -32,6 +32,7 @@ $dotenv->required(['redis_host'])->notEmpty();
 
 $router = new \Bramus\Router\Router();
 $router->get('/', 'action_index');
+$router->get('/c', 'action_create');
 $router->get('/r/(\w+)/?', 'action_r');
 $router->get('/r/(\w+)/comments/(\w+)/?', 'action_comment');
 $router->get('/user', 'action_user');
